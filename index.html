@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ALTAwash — Lavado Profesional</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- PARTICLES CANVAS -->
+  <canvas id="particles" class="particles"></canvas>
+
+  <!-- HEADER -->
+  <header id="header" class="header">
+    <div class="brand">
+      <img src="/img.png" alt="ALTAwash" class="logo" onerror="this.style.display='none'">
+      <span class="brand-text">ALTAwash</span>
+    </div>
+
+    <nav id="nav" class="nav">
+      <a onclick="scrollToId('inicio')">Inicio</a>
+      <a onclick="scrollToId('servicios')">Servicios</a>
+      <a onclick="scrollToId('precios')">Precios</a>
+      <a onclick="scrollToId('sobre')">Sobre</a>
+      <a onclick="scrollToId('zonas')">Zonas</a>
+      <a onclick="scrollToId('reservas')" class="cta">Reservar</a>
+    </nav>
+
+    <button id="hamb" class="hamb" aria-label="Abrir menú">☰</button>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero parallax">
+    <div class="hero-inner">
+      <h1 class="hero-title">Lavado Profesional de Acolchados y Telas</h1>
+      <p class="hero-sub">Retiro y entrega a domicilio — Tratamientos antialérgicos — Secado profesional</p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" onclick="openReserva()">Reservar ahora</button>
+        <button class="btn btn-ghost" onclick="scrollToId('servicios')">Ver servicios</button>
+      </div>
+
+      <div class="trust">
+        <div class="trust-item"><span class="stat">+500</span><small>Acolchados</small></div>
+        <div class="trust-item"><span class="stat">+300</span><small>Clientes</small></div>
+        <div class="trust-item"><span class="stat">5</span><small>Años</small></div>
+      </div>
+    </div>
+
+    <img src="/img.png" alt="hero" class="hero-img">
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="section center reveal">
+    <h2>Servicios</h2>
+    <p class="lead">Especialistas en acolchados XL, mantas, cortinas y telas delicadas.</p>
+
+    <div class="grid cards">
+      <article class="card hover-glow">
+        <img src="/img.png" alt="servicio">
+        <h3>Acolchados XL</h3>
+        <p>Limpieza profunda + sanitizado</p>
+      </article>
+
+      <article class="card hover-glow">
+        <img src="/img.png" alt="servicio">
+        <h3>Mantas y Frazadas</h3>
+        <p>Secado profesional y cuidado de fibras</p>
+      </article>
+
+      <article class="card hover-glow">
+        <img src="/img.png" alt="servicio">
+        <h3>Telas Delicadas</h3>
+        <p>Procesos manuales y test de color</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section id="precios" class="section alt reveal">
+    <h2>Precios</h2>
+    <div class="grid price-grid">
+      <div class="price-card hover-glow">
+        <h3>Estándar</h3>
+        <p class="price">$300</p>
+        <ul>
+          <li>Acolchado individual</li>
+          <li>Secado profesional</li>
+        </ul>
+        <button class="btn btn-primary" onclick="reservePlan('Estándar')">Reservar</button>
+      </div>
+
+      <div class="price-card featured hover-glow">
+        <h3>Premium</h3>
+        <p class="price">$450</p>
+        <ul>
+          <li>Acolchado XL</li>
+          <li>Sanitizado + antialérgico</li>
+        </ul>
+        <button class="btn btn-primary" onclick="reservePlan('Premium')">Reservar</button>
+      </div>
+
+      <div class="price-card hover-glow">
+        <h3>Delicado</h3>
+        <p class="price">$500</p>
+        <ul>
+          <li>Revisión manual</li>
+          <li>Tratamiento especial</li>
+        </ul>
+        <button class="btn btn-primary" onclick="reservePlan('Delicado')">Reservar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE NOSOTROS -->
+  <section id="sobre" class="section reveal center">
+    <h2>Sobre ALTAwash</h2>
+    <p class="lead">Combinamos maquinaria industrial, productos eco-friendly y atención personalizada para resultados profesionales.</p>
+  </section>
+
+  <!-- ZONAS -->
+  <section id="zonas" class="section alt reveal center">
+    <h2>Zonas donde llegamos</h2>
+    <p class="lead">Montevideo (Pocitos, Centro, Carrasco, Malvín, Cordón), y partes de Canelones.</p>
+  </section>
+
+  <!-- RESERVAS -->
+  <section id="reservas" class="section reveal center">
+    <h2>Reservá tu turno</h2>
+    <div class="reservas-box">
+      <form id="reservaForm" class="reserva-form">
+        <input id="r-name" name="name" type="text" placeholder="Nombre completo" required>
+        <input id="r-zone" name="zone" type="text" placeholder="Barrio / Dirección" required>
+        <input id="r-phone" name="phone" type="tel" placeholder="Teléfono (ej: 092...)" required>
+        <textarea id="r-detail" name="detail" placeholder="Qué quieres lavar..." rows="3" required></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Enviar por WhatsApp</button>
+          <button type="button" class="btn btn-ghost" onclick="openReserva()">Reservar (modal)</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="center small">© 2025 ALTAwash — <a href="https://wa.me/59892110046">WhatsApp</a> • <a href="#">Instagram</a></div>
+  </footer>
+
+  <!-- MODAL RESERVA -->
+  <div id="modalReserva" class="modal">
+    <div class="modal-card">
+      <h3>Enviar reserva</h3>
+      <p>Se abrirá WhatsApp con tu mensaje prellenado.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="modalSend">Abrir WhatsApp</button>
+        <button class="btn btn-ghost" onclick="closeReserva()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE -->
+  <a class="floating-wpp" href="https://wa.me/59892110046" aria-label="WhatsApp">💬</a>
+
+  <script src="/script.js"></script>
+</body>
+</html>
